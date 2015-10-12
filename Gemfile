@@ -33,6 +33,7 @@ gem 'puma'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'omniauth-onvedeo'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'figaro'
