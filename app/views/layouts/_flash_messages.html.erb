@@ -1,0 +1,6 @@
+<% flash.to_hash.slice('success', 'notice', 'warning', 'error', 'alert').reject { |k, v| v.blank? }.each do |key, value| %>
+  <div class="alert alert-dismissable <%= bootstrap_class_for(key) %>">
+    <button class="close" type="button" data-dismiss="alert" aria-hidden>&times;</button>
+    <%= value %>
+  </div>
+<% end %>

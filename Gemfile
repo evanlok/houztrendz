@@ -26,15 +26,41 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+# Use Puma as the app server
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'figaro'
+gem 'autoprefixer-rails'
+gem 'simple_form'
+gem 'paloma'
+gem 'faraday'
+gem 'typhoeus'
+gem 'honeybadger', '~> 2.0'
+gem 'asset_sync'
+gem 'fog', require: 'fog/aws/storage'
+gem 'newrelic_rpm'
+gem 'lograge'
+gem 'oj'
+gem 'oj_mimic_json'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery-ujs'
+  gem 'rails-assets-bootstrap-sass-official'
+  gem 'rails-assets-fontawesome'
+  gem 'rails-assets-normalize-scss'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'awesome_print'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -43,5 +69,17 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'quiet_assets'
 end
 
+group :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'webmock'
+  gem 'climate_control'
+end
+
+group :production do
+  gem 'rails_12factor'
+end

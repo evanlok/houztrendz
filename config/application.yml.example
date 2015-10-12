@@ -1,0 +1,9 @@
+HOST: localhost
+WEB_PORT: '3000'
+CDN_URL: https://houztrendz-development.s3.amazonaws.com
+AWS_ACCESS_KEY_ID: ACCESS_KEY
+AWS_SECRET_ACCESS_KEY: SECRET_KEY
+FOG_DIRECTORY: hal-development
+FOG_PROVIDER: AWS
+ASSET_SYNC_GZIP_COMPRESSION: 'true'
+HONEYBADGER_ENV: development

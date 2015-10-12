@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Houztrendz</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= content_for?(:title) ? content_for(:title) : 'HouzTrendz' %></title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= yield(:head) %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
-
+<div class="container-fluid">
+  <%= render 'layouts/flash_messages' %>
+  <%= yield %>
+</div>
+<%= insert_paloma_hook %>
 </body>
 </html>
