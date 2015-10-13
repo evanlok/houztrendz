@@ -25,6 +25,9 @@ module Houztrendz
 
     config.generators do |g|
       g.factory_girl false
+      g.helper false
+      g.javascripts false
+      g.stylesheets false
     end
   end
 end
