@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-sm-4">
+    USER AVATAR
+  </div>
+
+  <div class="col-sm-4">
+    <h3><%= @user.full_name %></h3>
+    <strong>Contact: <%= @user.phone.phony_formatted(format: :national) %></strong>
+    <br>
+    <strong>BRE Number: </strong>
+
+    <p>
+      <%= simple_format @user.biography %>
+    </p>
+  </div>
+
+  <div class="col-sm-4">
+    <% if current_user == @user %>
+      <p>
+        <%= link_to '#', class: 'btn btn-primary', data: { toggle: 'modal', target: '#edit-profile-modal' } do %>
+          <i class="fa fa-pencil-square-o"></i>
+          EDIT PROFILE
+        <% end %>
+      </p>
+    <% end %>
+
+    <p>
+      <%= link_to '#', class: 'btn btn-primary' do %>
+        <i class="fa fa-film"></i>
+        GENERATE VIDEO
+      <% end %>
+    </p>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <div id="edit-profile-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <%= simple_form_for(@user, url: update_profile_path, html: { method: :patch }) do |f| %>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">EDIT PROFILE</h4>
+          </div>
+          <div class="modal-body">
+            <%= render 'shared/errors', errored_on: @user %>
+
+            <div class="row">
+              <div class="col-sm-7">
+                <%= f.input :first_name %>
+                <%= f.input :last_name %>
+                <%= f.input :title %>
+                <%= f.input :phone %>
+                <%= f.input :email %>
+              </div>
+
+              <div class="col-sm-5">
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <%= f.input :biography, input_html: { rows: 8 } %>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit 'SUBMIT', class: 'btn btn-primary btn-block' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

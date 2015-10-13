@@ -1,0 +1,19 @@
+<% name ||= 'record' %>
+
+<% if errored_on.errors.any? %>
+  <div class="alert alert-danger">
+    <h4>
+      <% if local_assigns[:title].present? %>
+        <%= title %>
+      <% else %>
+        <%= pluralize(errored_on.errors.count, 'error') %> prohibited this <%= name %> from being saved
+      <% end %>
+    </h4>
+
+    <ul>
+      <% errored_on.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

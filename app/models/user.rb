@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :first_name, :last_name, presence: true
+  validates :phone, phony_plausible: true
+
+  # Callbacks
+  phony_normalize :phone, default_country_code: 'US'
 
   def self.from_onvedeo(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -14,6 +18,13 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
+      user.phone = auth.info.phone
+      user.biography = auth.info.description
+      user.bre_number = auth.info.bre_number
     end
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 end

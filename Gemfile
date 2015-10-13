@@ -49,6 +49,7 @@ gem 'newrelic_rpm'
 gem 'lograge'
 gem 'oj'
 gem 'oj_mimic_json'
+gem 'phony_rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ujs'

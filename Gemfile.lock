@@ -254,6 +254,10 @@ GEM
     paloma (4.2.1)
       jquery-rails
     pg (0.18.3)
+    phony (2.15.4)
+    phony_rails (0.12.10)
+      activesupport (>= 3.0)
+      phony (~> 2.12)
     puma (2.14.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -392,6 +396,7 @@ DEPENDENCIES
   omniauth-onvedeo
   paloma
   pg
+  phony_rails
   puma
   quiet_assets
   rails (= 4.2.4)
