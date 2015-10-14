@@ -50,6 +50,8 @@ gem 'lograge'
 gem 'oj'
 gem 'oj_mimic_json'
 gem 'phony_rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ujs'

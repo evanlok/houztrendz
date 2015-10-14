@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:onvedeo]
 
+  # Carrierwave
+  mount_uploader :avatar, AvatarUploader
+  mount_uploader :broker_logo, AvatarUploader
+
   # Validations
   validates :first_name, :last_name, presence: true
   validates :phone, phony_plausible: true
@@ -21,6 +25,8 @@ class User < ActiveRecord::Base
       user.phone = auth.info.phone
       user.biography = auth.info.description
       user.bre_number = auth.info.bre_number
+      user.remote_avatar_url = auth.info.image
+      user.remote_broker_logo_url = auth.info.company_logo
     end
   end
 
