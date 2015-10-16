@@ -19,18 +19,32 @@
         <li>
           <%= link_to 'HouzTrendz', root_path %>
         </li>
-        <li>
-          <%= link_to 'PROFILE', current_profile_path %>
-        </li>
-        <li>
-          <%= link_to 'CREATE', '#' %>
-        </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to 'PROFILE', current_profile_path %>
+          </li>
+          <li>
+            <%= link_to 'CREATE', '#' %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to 'LOGIN', new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to 'REGISTER', new_user_registration_path %>
+          </li>
+        <% end %>
         <li>
           <%= link_to 'CONTACT', '#' %>
         </li>
         <li>
           <%= link_to 'SHARE', '#' %>
         </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %>
+          </li>
+        <% end %>
       </ul>
     </div>
 

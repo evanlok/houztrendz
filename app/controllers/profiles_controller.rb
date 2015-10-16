@@ -10,13 +10,17 @@ class ProfilesController < ApplicationController
     render template: 'profiles/show'
   end
 
+  def edit
+    @user = current_user
+  end
+
   def update
     @user = current_user
 
     if @user.update(user_params)
-      redirect_to current_profile_url, notice: 'Profile updated.'
+      redirect_to edit_profile_url, notice: 'Profile updated.'
     else
-      render :show
+      render :edit
     end
   end
 

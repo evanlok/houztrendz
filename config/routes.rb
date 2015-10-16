@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'home#index', as: :unauthed_root
 
   resources :profiles, only: [:show]
+  get '/profile/edit', to: 'profiles#edit', as: :edit_profile
   patch '/profile', to: 'profiles#update', as: :update_profile
   get '/profile', to: 'profiles#me', as: :current_profile
 end

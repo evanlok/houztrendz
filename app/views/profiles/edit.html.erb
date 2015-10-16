@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-12 col-md-8 col-md-offset-2">
+    <h1 class="page-header">
+      EDIT PROFILE
+    </h1>
+
+    <%= simple_form_for(@user, url: update_profile_path, html: { method: :patch, class: 'profile-form' }) do |f| %>
+      <%= render 'shared/errors', errored_on: @user %>
+      <%= render 'form_fields', f: f, user: @user %>
+    <% end %>
+  </div>
+</div>
