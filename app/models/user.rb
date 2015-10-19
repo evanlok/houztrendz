@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   mount_uploader :broker_logo, AvatarUploader
 
+  # Assocations
+  has_many :videos, dependent: :destroy
+
   # Validations
   validates :first_name, :last_name, presence: true
   validates :phone, phony_plausible: true

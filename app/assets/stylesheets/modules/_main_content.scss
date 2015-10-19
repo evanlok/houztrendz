@@ -1,6 +1,8 @@
 .main {
-  padding: 40px;
-  margin-left: 110px;
+  @media (min-width: 768px) {
+    margin-left: 110px;
+    padding: 40px;
+  }
 }
 
 .main .page-header {

@@ -1,6 +1,8 @@
 @import "normalize-scss";
+@import "globals/variables";
 @import "bootstrap-sass-official/bootstrap-sprockets";
 @import "bootstrap-sass-official";
 $fa-font-path: "fontawesome/fonts";
 @import "fontawesome";
+@import "jquery-minicolors";
 @import "modules/*";

@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-sass-official
 //= require paloma
+//= require jquery-minicolors
 //= require_tree .

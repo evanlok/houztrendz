@@ -10,3 +10,12 @@ User.create do |u|
   'lobortis a nibh. Nam maximus dui eget ligula auctor, non pellentesque nisi posuere. Suspendisse nec mauris sodales, '\
   'semper eros ut, lobortis magna. '
 end
+
+%w(Coral Flight Pasture).each do |name|
+  Theme.create do |t|
+    t.name = name
+    t.class_name = name
+    t.active = true
+    t.thumbnail_url = "http://placehold.it/240x180?text=#{name}"
+  end
+end

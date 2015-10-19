@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="page-header text-center">
+      VIDEO OPTIONS
+    </h1>
+
+    <%= simple_form_for @video, html: { class: 'video-form' } do |f| %>
+      <%= render 'shared/errors', errored_on: @video %>
+
+      <div class="form-group text-center">
+        <%= f.label :location do %>
+          <h5>ENTER A CITY OR ZIPCODE</h5>
+        <% end %>
+
+        <%= f.text_field :location, class: 'form-control' %>
+      </div>
+
+      <div class="form-group text-center theme-selector">
+        <h5>SELECT A THEME</h5>
+
+        <% @themes.in_groups_of(3, false).each do |theme_group| %>
+          <div class="row">
+            <% theme_group.each do |theme| %>
+              <div class="col-sm-4">
+                <label>
+                  <%= f.radio_button :theme_id, theme.id %>
+                  <%= image_tag theme.thumbnail_url, class: 'img-responsive center-block' %>
+                  <div class="theme-name"><%= theme.name %></div>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="form-group text-center">
+        <h5>SELECT A BACKGROUND COLOR</h5>
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <%= f.text_field :background_color, class: 'minicolors minicolors-input form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <%= f.submit 'PREVIEW VIDEO', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $('input.minicolors').minicolors({
+    theme: 'bootstrap',
+    position: 'top left'
+  });
+</script>

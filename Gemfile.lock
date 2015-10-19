@@ -285,6 +285,7 @@ GEM
       rails-assets-jquery (>= 1.9.0)
     rails-assets-fontawesome (4.4.0)
     rails-assets-jquery (2.1.4)
+    rails-assets-jquery-minicolors (2.2.1)
     rails-assets-jquery-ujs (1.1.0)
       rails-assets-jquery (> 1.8)
     rails-assets-normalize-scss (3.0.3)
@@ -410,6 +411,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails-assets-bootstrap-sass-official!
   rails-assets-fontawesome!
+  rails-assets-jquery-minicolors!
   rails-assets-jquery-ujs!
   rails-assets-normalize-scss!
   rails_12factor

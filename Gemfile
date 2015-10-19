@@ -58,6 +58,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-sass-official'
   gem 'rails-assets-fontawesome'
   gem 'rails-assets-normalize-scss'
+  gem 'rails-assets-jquery-minicolors'
 end
 
 group :development, :test do

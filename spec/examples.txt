@@ -1,3 +1,5 @@
-example_id                      | status  | run_time        |
-------------------------------- | ------- | --------------- |
-./spec/models/user_spec.rb[1:1] | pending | 0.00002 seconds |
+example_id                       | status  | run_time        |
+-------------------------------- | ------- | --------------- |
+./spec/models/theme_spec.rb[1:1] | pending | 0.00001 seconds |
+./spec/models/user_spec.rb[1:1]  | pending | 0.00001 seconds |
+./spec/models/video_spec.rb[1:1] | pending | 0.00001 seconds |

@@ -1,0 +1,27 @@
+.video-form {
+  .theme-selector {
+    input {
+      display: none;
+    }
+
+    label:hover {
+      cursor: pointer;
+    }
+
+    img {
+      padding: 6px;
+    }
+
+    input:checked{
+      & + img {
+        border: 6px solid $orange;
+        border-radius: 8px;
+        padding: 0;
+
+        & + .theme-name {
+          color: $orange;
+        }
+      }
+    }
+  }
+}
