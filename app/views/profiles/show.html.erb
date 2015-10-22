@@ -36,3 +36,33 @@
     <% end %>
   </div>
 </div>
+
+<div class="profile-videos">
+  <% if @user == current_user %>
+    <div class="row flex-row">
+      <div class="col-sm-4 video generate-video-wrapper">
+        <div class="generate-video">
+          <div>
+            <%= link_to new_video_path do %>
+              <i class="fa fa-plus-circle fa-5x"></i>
+            <% end %>
+          </div>
+
+          <%= link_to 'GENERATE VIDEO', new_video_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+
+      <% @user.videos.first(2).each do |video| %>
+        <%= render 'video', video: video %>
+      <% end %>
+    </div>
+
+    <% @user.videos.drop(2).in_groups_of(3, false) do |video_group| %>
+      <%= render 'videos_row', videos: video_group %>
+    <% end %>
+  <% else %>
+    <% @user.videos.in_groups_of(3, false) do |video_group| %>
+      <%= render 'videos_row', videos: video_group %>
+    <% end %>
+  <% end %>
+</div>

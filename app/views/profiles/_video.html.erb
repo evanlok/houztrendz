@@ -1,0 +1,25 @@
+<div class="col-sm-4 video">
+  <%= link_to '#' do %>
+    <%= image_tag video.thumbnail_url, class: 'img-responsive center-block' %>
+  <% end %>
+
+  <div class="info">
+    <strong><%= video.title %></strong>
+    <br>
+    <%= video.location %>
+
+    <div class="links">
+      <%= link_to '#' do %>
+        <i class="fa fa-download"></i>
+      <% end %>
+
+      <%= link_to '#' do %>
+        <i class="fa fa-external-link"></i>
+      <% end %>
+
+      <% if video.user_id == current_user.id %>
+        <%= link_to 'EDIT', '#', class: 'btn btn-default btn-xs' %>
+      <% end %>
+    </div>
+  </div>
+</div>

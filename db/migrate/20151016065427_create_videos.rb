@@ -4,6 +4,7 @@ class CreateVideos < ActiveRecord::Migration
       t.belongs_to :theme, index: true
       t.belongs_to :user, index: true
       t.string :location, index: true
+      t.string :title
       t.string :background_color
       t.string :stream_url
       t.string :url_sd

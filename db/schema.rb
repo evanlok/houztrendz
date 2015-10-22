@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20151016065427) do
     t.integer  "theme_id"
     t.integer  "user_id"
     t.string   "location"
+    t.string   "title"
     t.string   "background_color"
     t.string   "stream_url"
     t.string   "url_sd"
