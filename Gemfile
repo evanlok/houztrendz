@@ -52,6 +52,7 @@ gem 'oj_mimic_json'
 gem 'phony_rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'pundit'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ujs'

@@ -9,3 +9,4 @@ ASSET_SYNC_GZIP_COMPRESSION: 'true'
 HONEYBADGER_ENV: development
 ONVEDEO_APP_ID: app_id
 ONVEDEO_APP_SECRET: app_secret
+HAL_URL: http://hal.onvedeo.com

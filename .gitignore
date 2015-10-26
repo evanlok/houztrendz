@@ -23,3 +23,6 @@
 
 # Uploads
 /public/uploads
+
+# Tests
+spec/examples.txt

@@ -19,7 +19,7 @@
   </div>
 
   <div class="col-sm-4">
-    <% if current_user == @user %>
+    <% if policy(@user).update? %>
       <p>
         <%= link_to edit_profile_path, class: 'btn btn-primary' do %>
           <i class="fa fa-pencil-square-o"></i>
