@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
           email: email,
           first_name: Faker::Name.first_name,
           last_name: Faker::Name.last_name,
-          phone: '415-456-7890',
+          phone: Faker::PhoneNumber.cell_phone,
           description: Faker::Lorem.paragraph,
           bre_number: 'BRE1234',
         ),

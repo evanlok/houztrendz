@@ -5,7 +5,7 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password 'test1234'
     title { Faker::Lorem.word }
-    phone '415-456-7890'
+    phone { Faker::PhoneNumber.cell_phone }
     biography { Faker::Lorem.paragraph }
     sequence(:bre_number) { |n| "BRE#{n}" }
   end
