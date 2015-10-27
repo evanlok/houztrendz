@@ -5,4 +5,8 @@ class Video < ActiveRecord::Base
 
   # Validations
   validates :user, :theme, :location, :background_color, presence: true
+
+  def generate
+    HALClient.new(self).generate
+  end
 end

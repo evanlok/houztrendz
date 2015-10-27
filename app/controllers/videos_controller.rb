@@ -13,6 +13,7 @@ class VideosController < ApplicationController
     authorize @video
 
     if @video.save
+      @video.generate
       redirect_to current_profile_url, notice: "Created video for: #{@video.location}"
     else
       @themes = Theme.all
@@ -28,6 +29,7 @@ class VideosController < ApplicationController
 
   def update
     if @video.update(video_params)
+      @video.generate
       redirect_to current_profile_url, notice: "Updated video: #{@video.title}"
     else
       render :edit
