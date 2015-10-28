@@ -1,0 +1,27 @@
+<%= simple_form_for [:admin, @core_logic_location] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :county_name %>
+  <%= f.input :state %>
+  <%= f.input :cbsa_name, label: 'CBSA Name' %>
+  <%= f.input :zip_code %>
+  <%= f.input :tier_name %>
+  <%= f.input :new_listings_inventory_count, label: 'New Listings Inventory - Count' %>
+  <%= f.input :new_listings_inventory_count_12m_change, label: 'New Listings Inventory - Count 12M Change' %>
+  <%= f.input :active_listings_inventory_count, label: 'Active Listings Inventory - Count' %>
+  <%= f.input :active_listings_inventory_count_1m_change, label: 'Active Listings Inventory - Count 1M Change' %>
+  <%= f.input :sold_inventory_count, label: 'Sold Inventory - Count' %>
+  <%= f.input :sold_inventory_count_12m_change, label: 'Sold Inventory - Count 12M Change' %>
+  <%= f.input :sold_inventory_count_1m_change, label: 'Sold Inventory - Count 1M Change' %>
+  <%= f.input :sold_listings_dom_mean, label: 'Sold Listings DOM - Mean' %>
+  <%= f.input :sold_listings_dom_mean_12m_change, label: 'Sold Listings DOM - Mean  12M Change' %>
+  <%= f.input :sold_list_price_mean, label: 'Sold List Price - Mean' %>
+  <%= f.input :sold_list_price_mean_12m_change, label: 'Sold List Price - Mean  12M Change' %>
+  <%= f.input :sold_list_price_mean_1m_change, label: 'Sold List Price - Mean  1M Change' %>
+  <%= f.input :active_list_price_mean, label: 'Active List Price - Mean' %>
+  <%= f.input :active_list_price_median, label: 'Active List Price - Median' %>
+  <%= f.input :active_listings_dom_mean, label: 'Active Listings DOM - Mean' %>
+  <%= f.input :cumulative_active_dom_mean, label: 'Cumulative Active DOM - Mean' %>
+
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', admin_core_logic_locations_path, class: 'btn btn-default' %>
+<% end %>

@@ -9,6 +9,7 @@ user = User.create do |u|
   'eu, sodales in mauris. Vivamus mattis nunc lacus, eu aliquet enim dignissim at. Fusce in quam ac mi posuere congue '\
   'lobortis a nibh. Nam maximus dui eget ligula auctor, non pellentesque nisi posuere. Suspendisse nec mauris sodales, '\
   'semper eros ut, lobortis magna. '
+  u.admin = true
 end
 
 %w(Coral Flight Pasture).each do |name|

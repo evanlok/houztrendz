@@ -1,0 +1,115 @@
+<h1 class="page-header">
+  Core Logic Locations
+</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#import" aria-expanded="false" aria-controls="import">
+        Import CoreLogic Locations
+      </a>
+    </h3>
+  </div>
+  <div id="import" class="panel-collapse collapse">
+    <div class="panel-body">
+      <%= simple_form_for :csv, url: import_admin_core_logic_locations_path, multipart: true do |f| %>
+        <%= f.input :file, as: :file %>
+        <%= f.button :submit, 'Import', class: 'btn btn-warning' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<p class="text-right">
+  <%= link_to 'New Core Logic location', new_admin_core_logic_location_path, class: 'btn btn-primary' %>
+</p>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Date</th>
+    <th>Zip Code</th>
+    <th>State</th>
+    <th>County</th>
+    <th>CBSA</th>
+    <th>Data</th>
+    <th>Updated</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @core_logic_locations.each do |core_logic_location| %>
+    <tr>
+      <td><%= core_logic_location.date %></td>
+      <td><%= core_logic_location.zip_code %></td>
+      <td><%= core_logic_location.state %></td>
+      <td><%= core_logic_location.county_name %></td>
+      <td><%= core_logic_location.cbsa_name %></td>
+      <td>
+        <%
+           content = <<-POPOVER
+           <dl>
+                                   <dt>Tier Name</dt>
+                                   <dd>#{core_logic_location.tier_name}</dd>
+             <dt>New Listings Inventory - Count</dt>
+             <dd>#{core_logic_location.new_listings_inventory_count}</dd>
+             <dt>New Listings Inventory - Count 12M Change</dt>
+             <dd>#{core_logic_location.new_listings_inventory_count_12m_change}</dd>
+             <dt>Active Listings Inventory - Count</dt>
+             <dd>#{core_logic_location.active_listings_inventory_count}</dd>
+             <dt>Active Listings Inventory - Count 1M Change</dt>
+             <dd>#{core_logic_location.active_listings_inventory_count_1m_change}</dd>
+             <dt>Sold Inventory - Count</dt>
+             <dd>#{core_logic_location.sold_inventory_count}</dd>
+             <dt>Sold Inventory - Count 12M Change</dt>
+             <dd>#{core_logic_location.sold_inventory_count_12m_change}</dd>
+             <dt>Sold Inventory - Count 1M Change</dt>
+             <dd>#{core_logic_location.sold_inventory_count_1m_change}</dd>
+             <dt>Sold Listings DOM - Mean</dt>
+             <dd>#{core_logic_location.sold_listings_dom_mean}</dd>
+             <dt>Sold Listings DOM - Mean  12M Change</dt>
+             <dd>#{core_logic_location.sold_listings_dom_mean_12m_change}</dd>
+             <dt>Sold List Price - Mean</dt>
+             <dd>#{core_logic_location.sold_list_price_mean}</dd>
+             <dt>Sold List Price - Mean  12M Change</dt>
+             <dd>#{core_logic_location.sold_list_price_mean_12m_change}</dd>
+             <dt>Sold List Price - Mean  1M Change</dt>
+             <dd>#{core_logic_location.sold_list_price_mean_1m_change}</dd>
+             <dt>Active List Price - Mean</dt>
+             <dd>#{core_logic_location.active_list_price_mean}</dd>
+             <dt>Active List Price - Median</dt>
+             <dd>#{core_logic_location.active_list_price_median}</dd>
+             <dt>Active Listings DOM - Mean</dt>
+             <dd>#{core_logic_location.active_listings_dom_mean}</dd>
+             <dt>Cumulative Active DOM - Mean</dt>
+             <dd>#{core_logic_location.cumulative_active_dom_mean}</dd>
+           </dl>
+           POPOVER
+        %>
+        <a href="#" data-toggle="popover" data-trigger="focus" data-content="<%= content %>" data-html="true" data-placement="left">
+          <i class="fa fa-info-circle fa-2"></i>
+        </a>
+      </td>
+      <td><%= core_logic_location.updated_at.to_s(:full) %></td>
+      <td class="actions">
+        <%= link_to [:edit, :admin, core_logic_location] do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+
+        <%= link_to [:admin, core_logic_location], method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @core_logic_locations %>
+
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>

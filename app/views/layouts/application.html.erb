@@ -47,7 +47,7 @@
 
 <div class="container-fluid main">
   <%= render 'layouts/flash_messages' %>
-  <%= yield %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
 </div>
 <%= insert_paloma_hook %>
 </body>
