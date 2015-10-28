@@ -49,7 +49,7 @@ RSpec.describe HALClient do
       let(:video) { create(:video, :new) }
 
       it 'raises exception' do
-        expect { hal_client.info }.to raise_error
+        expect { hal_client.info }.to raise_error(StandardError)
       end
     end
   end

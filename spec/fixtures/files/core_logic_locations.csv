@@ -1,0 +1,12 @@
+zip-script-widergeo_date,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+View Filter:,,,,,,,,,,,,,,,,,,,,
+({CBSA Name} = New York-Jersey City-White Plains NY-NJ Metropolitan Division) And ({Period Date} (ID) > 5/1/2015),,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+Page by:,,,,,,,,,,,,,,,,,,,,
+Period Date: 6/1/2015,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+County Name,,CBSA Name,Zip Code,Tier Name,New Listings Inventory - Count,New Listings Inventory - Count 12M Change,Active Listings Inventory - Count,Active Listings Inventory - Count 1M Change,Sold Inventory - Count,Sold Inventory  - Count 12M Change,Sold Inventory  - Count 1M Change,Sold Listings DOM - Mean,Sold Listings DOM - Mean  12M Change,Sold List Price - Mean,Sold List Price - Mean  12M Change,Sold List Price - Mean  1M Change,Active List Price - Mean,Active List Price - Median,Active Listings DOM - Mean,Cumulative Active DOM  - Mean
+Bronx,New York,New York-Jersey City-White Plains NY-NJ Metropolitan Division,10452,Single Family Combined,0,0.00%,9,12.50%,2,0.00%,100.00%,0,0.00%,0,0.00%,0.00%,0,0,0,0
+Bronx,New York,New York-Jersey City-White Plains NY-NJ Metropolitan Division,10453,Single Family Combined,3,3.20%,14,-6.67%,1,2.40%,2.30%,8,4.20%,350000,5.20%,3.4%,"365,830.00","347,143.00",133,156

@@ -1,0 +1,12 @@
+table {
+  td.actions {
+    a {
+      margin-left: 10px;
+      text-decoration: none;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

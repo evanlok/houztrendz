@@ -11,4 +11,14 @@ Rails.application.routes.draw do
 
   resources :videos
   resources :hal_video_callbacks, only: :create
+
+  namespace :admin do
+    root to: 'core_logic_locations#index'
+
+    resources :core_logic_locations do
+      collection do
+        post :import
+      end
+    end
+  end
 end

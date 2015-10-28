@@ -1,0 +1,9 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag :admin %>
+<% end %>
+
+<%= content_for :content do %>
+  <%= yield %>
+<% end %>
+
+<%= render template: 'layouts/application' %>

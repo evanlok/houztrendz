@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016065427) do
+ActiveRecord::Schema.define(version: 20151027051150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "core_logic_locations", force: :cascade do |t|
+    t.date     "date"
+    t.string   "county_name"
+    t.string   "state"
+    t.string   "cbsa_name"
+    t.string   "zip_code"
+    t.string   "tier_name"
+    t.integer  "new_listings_inventory_count",              default: 0
+    t.float    "new_listings_inventory_count_12m_change",   default: 0.0
+    t.integer  "active_listings_inventory_count",           default: 0
+    t.float    "active_listings_inventory_count_1m_change", default: 0.0
+    t.integer  "sold_inventory_count",                      default: 0
+    t.float    "sold_inventory_count_12m_change",           default: 0.0
+    t.float    "sold_inventory_count_1m_change",            default: 0.0
+    t.float    "sold_listings_dom_mean",                    default: 0.0
+    t.float    "sold_listings_dom_mean_12m_change",         default: 0.0
+    t.float    "sold_list_price_mean",                      default: 0.0
+    t.float    "sold_list_price_mean_12m_change",           default: 0.0
+    t.float    "sold_list_price_mean_1m_change",            default: 0.0
+    t.float    "active_list_price_mean",                    default: 0.0
+    t.float    "active_list_price_median",                  default: 0.0
+    t.float    "active_listings_dom_mean",                  default: 0.0
+    t.float    "cumulative_active_dom_mean",                default: 0.0
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
+  end
+
+  add_index "core_logic_locations", ["zip_code", "date"], name: "index_core_logic_locations_on_zip_code_and_date", unique: true, using: :btree
 
   create_table "themes", force: :cascade do |t|
     t.string   "name"
@@ -28,18 +57,18 @@ ActiveRecord::Schema.define(version: 20151016065427) do
   add_index "themes", ["class_name"], name: "index_themes_on_class_name", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "first_name"
@@ -50,6 +79,7 @@ ActiveRecord::Schema.define(version: 20151016065427) do
     t.string   "avatar"
     t.string   "bre_number"
     t.string   "broker_logo"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

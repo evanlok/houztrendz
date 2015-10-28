@@ -21,7 +21,7 @@
         <%= link_to 'PROFILE', current_profile_path %>
       </li>
       <li>
-        <%= link_to 'CREATE', '#' %>
+        <%= link_to 'CREATE', new_video_path %>
       </li>
     <% else %>
       <li>
@@ -47,7 +47,7 @@
 
 <div class="container-fluid main">
   <%= render 'layouts/flash_messages' %>
-  <%= yield %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
 </div>
 <%= insert_paloma_hook %>
 </body>
