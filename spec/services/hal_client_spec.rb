@@ -23,6 +23,7 @@ RSpec.describe HALClient do
     end
 
     it 'sends post request to hal and updates video.hal_id' do
+      expect_any_instance_of(VideoDataGenerator).to receive(:as_json) { {} }
       stub = stub_request(:post, "#{host}/api/v1/video_contents").
         with(body: video_params, headers: { 'Content-Type' => 'application/json' }).
         to_return(body: { id: 333 }.to_json)

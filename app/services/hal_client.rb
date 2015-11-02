@@ -10,7 +10,7 @@ class HALClient
       req.body = {
         video_type: Theme::VIDEO_TYPE,
         definition: video.theme.class_name,
-        data: {},
+        data: video_data,
         callback_url: callback_url,
         uid: video.id
       }
@@ -22,6 +22,10 @@ class HALClient
   def info
     fail "Video #{video.id} has not been generated yet" unless video.hal_id
     client.get("/api/v1/video_contents/#{video.hal_id}")
+  end
+
+  def video_data
+    @video_data ||= VideoDataGenerator.new(video).as_json
   end
 
   private
