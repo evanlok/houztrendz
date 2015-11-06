@@ -63,4 +63,12 @@ FactoryGirl.define do
     active_listings_dom_mean 21
     cumulative_active_dom_mean 25
   end
+
+  factory :message do
+    sender_name { Faker::Name.name }
+    sender_email { Faker::Internet.email }
+    body { Faker::Lorem.paragraph }
+    phone { Faker::PhoneNumber.phone_number }
+    association :recipient, factory: :user
+  end
 end

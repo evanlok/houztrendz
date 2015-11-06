@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'profiles#me', as: :current_profile
 
   resources :videos
+  resources :messages, only: [:create]
   resources :hal_video_callbacks, only: :create
 
   namespace :admin do

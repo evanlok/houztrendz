@@ -4,5 +4,5 @@ class VideoPolicy < ApplicationPolicy
   end
 
   alias_method :update?, :create?
-  alias_method :update?, :destroy?
+  alias_method :destroy?, :create?
 end

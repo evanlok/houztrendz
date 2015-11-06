@@ -15,4 +15,5 @@
 //= require bootstrap-sass-official
 //= require paloma
 //= require jquery-minicolors
+//= require videojs/videojs-resolution-switcher
 //= require_tree .
