@@ -22,6 +22,7 @@ class VideosController < ApplicationController
   end
 
   def show
+    @core_logic_location = @video.core_logic_location
   end
 
   def edit

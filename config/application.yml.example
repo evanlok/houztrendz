@@ -11,3 +11,4 @@ HONEYBADGER_ENV: development
 ONVEDEO_APP_ID: app_id
 ONVEDEO_APP_SECRET: app_secret
 HAL_URL: http://hal.onvedeo.com
+GOOGLE_BROWSER_KEY: AIzaSyDuy9-TZg1yqUQ_PGP4gSJ5rmr2KOTWs-M

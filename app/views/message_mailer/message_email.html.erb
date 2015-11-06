@@ -1,0 +1,17 @@
+<p>
+Hello <%= @message.recipient.first_name %>,
+</p>
+
+<p>
+  You have a new message from:
+</p>
+
+<p>
+  Name: <%= @message.sender_name %>
+  <br>
+  Phone: <%= @message.sender_phone %>
+</p>
+
+<p>
+  <%= simple_format @message.body %>
+</p>

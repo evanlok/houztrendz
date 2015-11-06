@@ -1,0 +1,77 @@
+<% content_for :prepend_head do %>
+  <%= stylesheet_link_tag '//vjs.zencdn.net/5.0.2/video-js.min.css' %>
+  <%#= javascript_include_tag '//vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js' %>
+  <%= javascript_include_tag '//vjs.zencdn.net/5.0.2/video.js' %>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12 col-lg-10 col-lg-offset-1">
+    <div class="row">
+      <div class="col-md-8">
+        <h1><%= @video.title %></h1>
+
+        <div>
+          <%= @core_logic_location.county_name %> <%= @core_logic_location.zip_code %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <ul class="list-inline text-right">
+          <li><%= image_tag @video.user.avatar.url(:thumb) %></li>
+          <li><i class="fa fa-external-link"></i></li>
+          <li><i class="fa fa-download"></i></li>
+        </ul>
+      </div>
+    </div>
+
+    <video id="video" class="video-js vjs-default-skin vjs-big-play-centered"
+           controls preload="auto" width="100%"
+           poster="<%= @video.thumbnail_url %>"
+           <%= 'autoplay' if params[:autoplay].present? %>>
+
+      <source src="<%= @video.url_sd %>" type="video/mp4" label="360p" res="360"/>
+      <source src="<%= @video.url_hd %>" type="video/mp4" label="720p" res="720"/>
+
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="clearfix">
+          <%= image_tag @video.user.avatar.url(:small), class: 'pull-left' %>
+          <h4><%= @video.user.full_name %></h4>
+          <strong><%= @video.user.title %></strong>
+          <br/>
+          <strong><%= @video.user.phone.phony_formatted(format: :national) %></strong>
+        </div>
+
+        <p>
+          <%= simple_format @video.user.biography %>
+        </p>
+      </div>
+
+      <div class="col-md-4">
+        <h5><%= @core_logic_location.zip_code %></h5>
+
+        <iframe width="100%" height="300" frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?q=<%= @core_logic_location.zip_code %>&key=<%= ENV['GOOGLE_BROWSER_KEY'] %>" allowfullscreen></iframe>
+      </div>
+
+      <div class="col-md-4">
+        <h5>CONTACT THIS AGENT</h5>
+
+        <%= simple_form_for Message.new do |f| %>
+          <%= f.input :body, required: true, input_html: { rows: 5 }, label: false, placeholder: "Hi #{@video.user.first_name}\nI am interested in learning more about your service offering, please contact me with more information." %>
+          <%= f.input :sender_name, required: true, label: false, placeholder: 'YOUR NAME' %>
+          <%= f.input :sender_email, required: true, label: false, placeholder: 'YOUR EMAIL' %>
+          <%= f.input :sender_phone, label: false, placeholder: 'YOUR NUMBER' %>
+          <%= f.hidden_field :recipient_id, value: @video.user_id %>
+          <%= f.submit 'SUBMIT', class: 'btn btn-primary btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

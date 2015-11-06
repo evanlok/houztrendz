@@ -9,4 +9,8 @@ class Video < ActiveRecord::Base
   def generate
     HALClient.new(self).generate
   end
+
+  def core_logic_location
+    @core_logic_location ||= CoreLogicLocation.where(zip_code: location).order(:date).last
+  end
 end

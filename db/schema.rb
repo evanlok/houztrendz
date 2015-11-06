@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027051150) do
+ActiveRecord::Schema.define(version: 20151106070406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 20151027051150) do
   end
 
   add_index "core_logic_locations", ["zip_code", "date"], name: "index_core_logic_locations_on_zip_code_and_date", unique: true, using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "sender_name"
+    t.string   "sender_email"
+    t.string   "sender_phone"
+    t.text     "body"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "messages", ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
 
   create_table "themes", force: :cascade do |t|
     t.string   "name"
