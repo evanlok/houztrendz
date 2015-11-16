@@ -1,1 +1,150 @@
-<h1>HouzTrendz</h1>
+<div class="homepage">
+  <div class="row-fluid">
+    <div class="col-md-6">
+      <div class="hero hp-pad">
+        <%= image_tag("houztrendz-horiz-logo.png", class: "houztrendz-horiz-logo") %>
+        <h4>Generate Personalized Local Market Reports in a Click</h4>
+
+        <div class="main-house">
+          <%= image_tag("main-house.png") %>
+        </div>
+        <div class="main-graphic">
+          <div class="bars">         
+            <%= image_tag("bar-dark.png", class: "bar-dark") %>
+            <%= image_tag("bar-med.png", class: "bar-med")  %>
+            <%= image_tag("bar-light.png", class: "bar-light") %>
+          </div>
+          <%= image_tag("line-area-chart.png", class: "line-chart") %>
+          <%= image_tag("line-area-chart-transparency.png", class: "line-chart-transparent") %>
+          <canvas id="pieChart" class="piechart"></canvas>
+          <canvas id="lineChart" class="dotchart" width="600" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 video-column">
+      <i class="fa fa-youtube-play"></i>
+    </div>
+  </div>
+</div>
+
+<% content_for :script do %>
+  <script>
+
+
+var data = [
+    {
+        value: 300,
+        color:"#decf62",
+    },
+    {
+        value: 50,
+        color: "#b4a843",
+    },
+    {
+        value: 100,
+        color: "#c3b445",
+    }
+]
+
+var options = {
+
+  // Boolean - Determines whether to draw tooltips on the canvas or not
+    showTooltips: false,
+  // Boolean - Whether we should show a stroke on each segment
+    segmentShowStroke : false,
+
+    //String - The colour of each segment stroke
+    segmentStrokeColor : "#fff",
+
+    //Number - The width of each segment stroke
+    segmentStrokeWidth : 0,
+
+    //Number - The percentage of the chart that we cut out of the middle
+    percentageInnerCutout : 0, // This is 0 for Pie charts
+
+    //Number - Amount of animation steps
+    animationSteps : 50,
+
+    //String - Animation easing effect
+    animationEasing : "easeOutQuad",
+
+    //Boolean - Whether we animate the rotation of the Doughnut
+    animateRotate : true,
+
+    //Boolean - Whether we animate scaling the Doughnut from the centre
+    animateScale : false,
+
+}
+var ctx = $('#pieChart').get(0).getContext('2d');
+var myNewChart = new Chart(ctx).Doughnut(data, options);
+ // line chart data
+var lineData = {
+  labels : ["","","","","","",""],
+  datasets : [
+    {
+      label: "Caudal",
+      fillColor : "rgba(64,80,161,0.5)",
+      strokeColor : "#ffffff",
+      pointColor : "#808080",
+      pointStrokeColor : "#ffffff",
+      pointHighlightFill: "#ffffff",
+      responsive: true,
+      datasetStrokeWidth : 12,
+      scaleGridLineWidth : 21,
+      data : [40,56,36,51,35,47]
+    }
+]
+}
+var lineOptions = {
+    // Boolean - Determines whether to draw tooltips on the canvas or not
+    showTooltips: false,
+///Boolean - Whether grid lines are shown across the chart
+    scaleShowGridLines : false,
+
+    //String - Colour of the grid lines
+    scaleGridLineColor : "rgba(0,0,0,.0)",
+
+    //Number - Width of the grid lines
+    scaleGridLineWidth : 0,
+
+    //Boolean - Whether to show horizontal lines (except X axis)
+    scaleShowHorizontalLines: false,
+
+    //Boolean - Whether to show vertical lines (except Y axis)
+    scaleShowVerticalLines: false,
+
+    //Boolean - Whether the line is curved between points
+    bezierCurve : true,
+
+    //Number - Tension of the bezier curve between points
+    bezierCurveTension : 0.5,
+
+    //Boolean - Whether to show a dot for each point
+    pointDot : true,
+
+    //Number - Radius of each point dot in pixels
+    pointDotRadius : 8,
+
+    //Number - Pixel width of point dot stroke
+    pointDotStrokeWidth : 5,
+
+    //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+    pointHitDetectionRadius : 20,
+
+    //Boolean - Whether to show a stroke for datasets
+    datasetStroke : true,
+
+    //Number - Pixel width of dataset stroke
+    datasetStrokeWidth : 7,
+
+    //Boolean - Whether to fill the dataset with a colour
+    datasetFill : false,
+
+}
+// get line chart canvas
+var lct = $('#lineChart').get(0).getContext('2d');
+// draw line chart
+new Chart(lct).Line(lineData, lineOptions);
+// pie chart data
+</script>
+<% end %>

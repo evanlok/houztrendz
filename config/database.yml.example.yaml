@@ -81,5 +81,7 @@ test:
 production:
   <<: *default
   database: houztrendz_production
-  username: houztrendz
-  password: <%= ENV['HOUZTRENDZ_DATABASE_PASSWORD'] %>
+  username: collin
+  password: 
+  host: localhost
+  port: 5432

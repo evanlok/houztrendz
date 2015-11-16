@@ -10,46 +10,56 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= yield(:head) %>
   <%= csrf_meta_tags %>
+
+  <!-- Typekit Fonts -->
+  <script type="text/javascript" src="//use.typekit.net/rth8pka.js"></script>
+  <script type="text/javascript">try {
+    Typekit.load();
+  } catch (e) {
+  }</script>
+
 </head>
 <body>
-<div class="sidebar">
-  <ul class="nav nav-sidebar">
-    <li>
-      <%= link_to 'HouzTrendz', root_path %>
-    </li>
-    <% if user_signed_in? %>
+  <div id="nav">
+    <ul class="">
+      <%= link_to root_path, :class => "nav-logo" do%>
+        <%= image_tag("ht-logo.png", class: "ht-logo-mark") %>
+      <% end %>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to current_profile_path, class: "navlink-style" do%>
+              <%= image_tag @video.user.avatar.url(:thumb), class: "profile-image-nav" %>
+              <div>PROFILE</div>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to 'CREATE', new_video_path, class: "navlink-style" %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'LOGIN', new_user_session_path, class: "navlink-style" %>
+        </li>
+        <li>
+          <%= link_to 'REGISTER', new_user_registration_path, class: "navlink-style" %>
+        </li>
+      <% end %>
       <li>
-        <%= link_to 'PROFILE', current_profile_path %>
+        <%= link_to 'CONTACT', '#', class: "navlink-style" %>
       </li>
       <li>
-        <%= link_to 'CREATE', new_video_path %>
+        <%= link_to 'SHARE', '#', class: "navlink-style" %>
       </li>
-    <% else %>
-      <li>
-        <%= link_to 'LOGIN', new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to 'REGISTER', new_user_registration_path %>
-      </li>
-    <% end %>
-    <li>
-      <%= link_to 'CONTACT', '#' %>
-    </li>
-    <li>
-      <%= link_to 'SHARE', '#' %>
-    </li>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-
-<div class="container-fluid main">
-  <%= render 'layouts/flash_messages' %>
-  <%= content_for?(:content) ? yield(:content) : yield %>
-</div>
-<%= insert_paloma_hook %>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "navlink-style" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="container-fluid main">
+    <%= render 'layouts/flash_messages' %>
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
+  <%= insert_paloma_hook %>
 </body>
 </html>

@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'bebas_neuebold';
+    src: url('fonts/bebasneue_bold-webfont.eot');
+    src: url('fonts/bebasneue_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/bebasneue_bold-webfont.woff2') format('woff2'),
+         url('fonts/bebasneue_bold-webfont.woff') format('woff'),
+         url('fonts/bebasneue_bold-webfont.ttf') format('truetype'),
+         url('fonts/bebasneue_bold-webfont.svg#bebas_neuebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+  font-family: "proxima-nova";
+}
+h1, h2, h3 {
+  font-weight: 500;
+}
+.container-fluid {
+  padding: 0px;
+}
+#nav {
+  position: fixed;
+  height: 100%;
+  width: 120px;
+  background-color: hsla(0, 0%, 0.0000%, 0.6000);
+  ul {
+    list-style: none;
+    padding: 0px;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "proxima-nova-extra-condensed";
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  .navlink-style {
+    padding: 12px 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    border-bottom: 1px solid hsl(0, 0.0000%, 60.0000%);
+  }
+}
+.profile-image-nav {
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+}
+.nav-logo {
+  position: relative;
+  display: block;
+  height: 120px;
+  width: 120px;
+  background: hsl(7, 76.3033%, 58.6275%);
+}
+.ht-logo-mark {
+  width: 90px;
+  display: block;
+  margin: 0px auto;
+  padding-top: 15px;
+}
+.homepage {
+
+  .col-md-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+    min-height: 500px;
+  }
+  .hero {
+    background-color: gray;
+    height:500px;
+    padding-top: 100px;
+  }
+  .hp-pad {
+    background: hsl(0, 0.0000%, 28.6275%) image-url("house-bg.png") no-repeat center bottom; 
+    background-size: 100% auto;
+  }
+  h4 {
+    text-align: center;
+    color: hsl(8, 79.4393%, 58.0392%);
+    margin-bottom: 30px;
+  }
+  .houztrendz-horiz-logo {
+    margin: 0px auto;
+    display: block;
+  }
+  .main-house {
+    margin: 180px auto 0px;
+    display: block;
+    z-index: 3;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  .main-graphic {
+    width: 70%;
+    margin: 0px auto;
+    position: relative;
+    img {
+      max-width: 100%;
+      position: absolute;
+    }
+    canvas {
+      max-width: 100%;
+      position: absolute;
+    }
+  }
+  .bars {
+    z-index: 2;
+    position: absolute;
+    height: 200px;
+    overflow: hidden;
+    margin-left: 43%;
+    margin-top: 50px;
+    img {
+      position: relative;
+    }
+  }
+  .bar-med {
+    margin-left: -8px;
+  }
+  .bar-light {
+    margin-left: -8px;
+  }
+  .video-column {
+    text-align: center;
+    background-color: hsl(8, 79.4393%, 58.0392%);
+    i {
+      color: white;
+      font-size: 98px;
+    }
+  }
+  .dot-chart {
+    z-index: 3;
+    margin-left: 74px;
+    margin-top: 103px;
+  }
+  .line-chart {
+    margin-top: 130px;
+    z-index: 2;
+  }
+  .line-chart-transparent {
+    margin: 130px 0px 0px 15px;
+    opacity: 0.6;
+    z-index: 2;
+  }
+}
+.logo {
+  color: white;
+}
+#myChart {
+  width: 150px;
+  height: 150px;
+}
+.video-page {
+    height: 100%;
+    padding-left: 120px;
+  .row {
+    margin: 0 auto;
+  }
+  .agent-name {
+    margin-top: 0px;
+  }
+}
+.video-page-column {
+  max-width: 1000px;
+  margin: 0 auto;
+  video {
+    background-color: white;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
+.top-button {
+  height: 45px;
+  width: 45px;
+  overflow: hidden;
+  -webkit-border-radius: 40px; 
+  -moz-border-radius: 40px; 
+  border-radius: 40px; 
+  background-color: white;
+  display: inline-block;
+  float: right;
+  text-align: center;
+  margin-left: 7px;
+  i {
+    font-size: 24px;
+    color: hsl(270, 1.6788%, 75.0312%);
+    line-height: 1.9;
+  }
+  img {
+    width: 100%;
+  }
+}
+.video-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+.location-info {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.action-buttons {
+  li {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 24px;
+    background-color: white;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    margin-left: 7px;
+    color: hsl(0, 0.0000%, 80.7843%);
+  }
+}
+.map {
+  img {
+    width: 100%;
+  }
+}
+
+input[type="submit"], input[type="text"], textarea {
+  width: 100%;
+  margin-top: 8px;
+}
