@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   # Assocations
   has_many :videos, dependent: :destroy
+  has_many :clients, :inverse_of => :user, dependent: :destroy
 
   # Validations
   validates :first_name, :last_name, presence: true
