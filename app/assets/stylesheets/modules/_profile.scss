@@ -1,3 +1,28 @@
+.profile-page {
+  .username {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 0px;
+  }
+  .edit-button, .generate-button {
+    width: 100%;
+    padding: 10px;
+    background-color: hsl(7, 76.3033%, 58.6275%);
+    display: block;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    i {
+      color: hsl(7, 60.7143%, 40.9216%);
+    }
+  }
+}
+
 .profile-videos {
   .flex-row {
     @include flex-container();
@@ -7,20 +32,47 @@
     padding: 15px;
 
     .info {
-      padding: 10px;
+      padding: 20px;
+      height: 150px;
       background-color: #ffffff;
+      position: relative;
+
+      .video-title {
+        font-size: 18px;
+      }
+
+      .location {
+        font-size: 16px;
+      }
 
       .links {
         text-align: right;
-        margin-top: 20px;
+        padding: 20px 20px 15px;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
 
         a {
           margin-left: 6px;
           text-decoration: none;
+          color: hsl(0, 0.0000%, 70.0392%);
         }
 
         i {
-          font-size: 16px;
+          font-size: 18px;
+        }
+        .edit-button {
+          padding: 3px 10px;
+          border-radius: 20px;
+          -moz-border-radius: 20px;
+          -webkit-border-radius: 20px;
+          border: 1px solid hsl(0, 0.0000%, 70.0392%);
+          display: inline;
+          background-color: white;
+        }
+        .icon-button {
+          padding-top: 5px;
+          display: inline-block;
         }
       }
     }
@@ -36,10 +88,11 @@
       -webkit-flex: 1;  /* Safari 6.1+ */
       -ms-flex: 1;  /* IE 10 */
       flex: 1;
+      position: relative;
 
       i {
-        color: $orange;
         margin-bottom: 20px;
+        padding-top: 30%;
       }
     }
   }

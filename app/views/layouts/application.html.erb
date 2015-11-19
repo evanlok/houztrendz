@@ -28,7 +28,7 @@
       <% if user_signed_in? %>
         <li>
           <%= link_to current_profile_path, class: "navlink-style" do%>
-              <%= image_tag @video.user.avatar.url(:thumb), class: "profile-image-nav" %>
+              <%#= image_tag @video.user.avatar.url(:thumb), class: "profile-image-nav" %>
               <div>PROFILE</div>
           <% end %>
         </li>
@@ -56,9 +56,11 @@
       <% end %>
     </ul>
   </div>
-  <div class="container-fluid main">
-    <%= render 'layouts/flash_messages' %>
-    <%= content_for?(:content) ? yield(:content) : yield %>
+  <div class="left-pad">
+    <div class="container main">
+      <%= render 'layouts/flash_messages' %>
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </div>
   </div>
   <%= insert_paloma_hook %>
 </body>

@@ -4,21 +4,20 @@
   <% end %>
 
   <div class="info">
-    <strong><%= video.title %></strong>
-    <br>
-    <%= video.location %>
+    <div class="video-title"><%= video.title %></div>
+    <div class="location"><%= video.location %></div>
 
     <div class="links">
-      <%= link_to '#' do %>
+      <%= link_to '#' , class: 'icon-button' do %>
         <i class="fa fa-download"></i>
       <% end %>
 
-      <%= link_to video do %>
+      <%= link_to video , class: 'icon-button' do %>
         <i class="fa fa-external-link"></i>
       <% end %>
 
       <% if video.user_id == current_user.id %>
-        <%= link_to 'EDIT', '#', class: 'btn btn-default btn-xs' %>
+        <%= link_to 'EDIT', '#', class: 'edit-button' %>
       <% end %>
     </div>
   </div>

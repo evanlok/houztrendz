@@ -1,3 +1,41 @@
+.bottom-row {
+  margin-top: 30px;
+}
+
+.videopage-user-avatar {
+  border-radius: 60px;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  width: 70px;
+  margin-right: 10px;
+}
+
+.user-info {
+  h3 {
+    margin: 0px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+.map-column {
+  h5 {
+    font-weight: bold;
+    margin: 0px;
+  }
+}
+.contact-form {
+  h5 {
+    font-weight: bold;
+    margin: 0px;
+  }
+  .contact-button {
+    border-radius: 60px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    background-color: hsl(7, 76.3033%, 58.6275%);
+    border: none;
+  }
+}
 .video-form {
   .theme-selector {
     input {
