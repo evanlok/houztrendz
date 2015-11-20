@@ -1,4 +1,10 @@
 .profile-page {
+  .avatar-container {
+    border-radius: 150px;
+    -moz-border-radius: 150px;
+    -webkit-border-radius: 150px;
+    overflow: hidden;
+  }
   .username {
     font-size: 30px;
     font-weight: bold;
@@ -24,6 +30,9 @@
 }
 
 .profile-videos {
+
+  margin-top: 30px;
+
   .flex-row {
     @include flex-container();
   }
@@ -69,10 +78,12 @@
           border: 1px solid hsl(0, 0.0000%, 70.0392%);
           display: inline;
           background-color: white;
+          font-size: 12px;
         }
         .icon-button {
           padding-top: 5px;
           display: inline-block;
+          vertical-align: middle;
         }
       }
     }
@@ -95,5 +106,45 @@
         padding-top: 30%;
       }
     }
+  }
+}
+
+.profile-edit, .video-new {
+  padding: 5% 10% 10%;
+  border: 1px solid hsl(0, 0.0000%, 75.5680%);
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -webkit-box-shadow: 10px 10px 67px -2px rgba(0,0,0,0.28);
+  -moz-box-shadow: 10px 10px 67px -2px rgba(0,0,0,0.28);
+  box-shadow: 10px 10px 67px -2px rgba(0,0,0,0.28);
+  h1 {
+    font-weight: bold;
+  }
+}
+
+.video-new {
+  h5 {
+    font-weight: bold;
+  }
+  .location-field {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .minicolors {
+    margin: 160px auto 0px;
+    width: 175px;
+  }
+  .minicolors-panel {
+    display: block;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    margin: 0 auto;
+  }
+  .minicolors-input {
+    width: 175px;
+  }
+  .minicolors-swatch {
   }
 }

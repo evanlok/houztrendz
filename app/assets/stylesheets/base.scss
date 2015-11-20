@@ -18,6 +18,20 @@ h1, h2, h3 {
 a {
   color: hsl(7, 76.3033%, 58.6275%);
 }
+.btn, .btn-primary, .btn-block {
+  background-color: hsl(7, 76.3033%, 58.6275%);
+  border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border: none;
+  &:hover {
+    background-color:hsl(3, 60.1763%, 39.6603%);
+  }
+}
+.btn-big {
+  font-size: 24px;
+  font-weight: bold;
+}
 .left-pad {
   padding-left: 120px;
 }

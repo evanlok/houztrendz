@@ -1,14 +1,16 @@
 <div class="profile-page">
   <div class="row">
-    <div class="col-sm-3">
-      <% if @user.avatar? %>
-        <%= image_tag @user.avatar.url(:large), class: 'img-responsive center-block' %>
-      <% else %>
+    <div class="col-sm-2">
+      <div class="avatar-container">
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url(:large), class: 'img-responsive center-block' %>
+        <% else %>
         DEFAULT USER AVATAR
       <% end %>
+      </div>
     </div>
 
-    <div class="col-sm-9">
+    <div class="col-sm-10">
       <div class="row">
         <div class="col-sm-7">
           <h3 class="username"><%= @user.full_name %></h3>
@@ -41,16 +43,15 @@
 
   <div class="profile-videos">
     <% if @user == current_user %>
-      <div class="row flex-row">
+      <div class="row">
         <div class="col-sm-4 video generate-video-wrapper">
           <div class="generate-video">
             <div>
               <%= link_to new_video_path do %>
                 <i class="fa fa-plus-circle fa-5x"></i>
+                <div>GENERATE VIDEO</div>
               <% end %>
             </div>
-
-            <%= link_to 'GENERATE VIDEO', new_video_path  %>
           </div>
         </div>
 
