@@ -24,6 +24,12 @@
       <li>
         <%= link_to 'CREATE', new_video_path %>
       </li>
+      <li>
+        <%= link_to 'EMAILING LIST', clients_path %>
+      </li>
+      <li>
+        <%#= link_to 'EMAIL REPORT', reports_path %> 
+      </li>   
     <% else %>
       <li>
         <%= link_to 'LOGIN', new_user_session_path %>
@@ -31,6 +37,7 @@
       <li>
         <%= link_to 'REGISTER', new_user_registration_path %>
       </li>
+      
     <% end %>
     <li>
       <%= link_to 'CONTACT', '#' %>

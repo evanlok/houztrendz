@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(version: 20151119090137) do
     t.string   "email"
     t.integer  "zip_code"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "notes"
+    t.string   "customfield1"
+    t.string   "customfield2"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "clients", ["user_id"], name: "index_clients_on_user_id", using: :btree

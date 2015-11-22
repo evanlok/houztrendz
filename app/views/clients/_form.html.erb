@@ -1,0 +1,15 @@
+<%= simple_form_for @client do |f| %>
+  <div class="row-fluid">
+    <div class="span4 columns">   
+
+      <div class="actions">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email, placeholder: 'user@domain.com' %>
+        <%= f.input :zip_code %>
+
+        <%= f.submit class: "submit update-button" %>
+      </div>
+    </div>
+  </div>
+<% end %>

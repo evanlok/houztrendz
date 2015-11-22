@@ -1,0 +1,35 @@
+<h1> Clients </h1>
+
+<div>
+  <div>
+  <h2>Total: <%= @clients.count %></h2>
+  <%= link_to 'Create New Client', new_client_path%>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First Name </th>
+      <th>Last Name </th>
+      <th>Email</th>
+      <th>Zip Code</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.try(:first_name) %></td>
+        <td><%= client.try(:last_name) %></td>
+        <td><%=link_to client.email, client_path(client.id) %></td>
+        <td><%= client.zip_code%></td>
+        <td>
+          <div class="ed-buttons">
+            <%= link_to 'Edit', edit_client_path(client), class: "edit-button" %>
+            <%= link_to 'Delete',client_path(client), method: :delete, data: { confirm: "Are you sure?" }%>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
