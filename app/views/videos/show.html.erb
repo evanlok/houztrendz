@@ -45,7 +45,7 @@
           <h4><%= @video.user.full_name %></h4>
           <strong><%= @video.user.title %></strong>
           <br/>
-          <strong><%= @video.user.phone.phony_formatted(format: :national) %></strong>
+          <strong><%= @video.user.phone.try(:phony_formatted, format: :national) %></strong>
         </div>
 
         <p>
