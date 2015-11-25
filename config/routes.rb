@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   resources :messages, only: [:create]
   resources :hal_video_callbacks, only: :create
   resources :clients
+  resources :activities, only: [:index]
   
-
-  match "/email_events" => "clients#events", :as => :get_email_events, via: [:get, :post]
-
+  scope '/hooks', :controller => :hooks do
+    post :sendgrid_event_callback
+  end  
 
   namespace :admin do
     root to: 'core_logic_locations#index'

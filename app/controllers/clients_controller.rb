@@ -35,9 +35,6 @@ class ClientsController < ApplicationController
     redirect_to clients_path, notice: "Deleted client: #{@client.email}"
   end
 
-  def events
-  end
-
   private
 
   def load_client

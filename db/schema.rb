@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119090137) do
+ActiveRecord::Schema.define(version: 20151125200612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,19 @@ ActiveRecord::Schema.define(version: 20151119090137) do
   end
 
   add_index "messages", ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
+
+  create_table "sendgrid_events", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "timestamp"
+    t.integer  "smtp_id"
+    t.string   "user_agent"
+    t.string   "event"
+    t.integer  "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sendgrid_events", ["client_id"], name: "index_sendgrid_events_on_client_id", using: :btree
 
   create_table "themes", force: :cascade do |t|
     t.string   "name"
