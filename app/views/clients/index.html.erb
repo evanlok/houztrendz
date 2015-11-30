@@ -27,6 +27,7 @@
           <div class="ed-buttons">
             <%= link_to 'Edit', edit_client_path(client), class: "edit-button" %>
             <%= link_to 'Delete',client_path(client), method: :delete, data: { confirm: "Are you sure?" }%>
+            <%= link_to 'Send Email', send_email_client_path(client) %>
           </div>
         </td>
       </tr>

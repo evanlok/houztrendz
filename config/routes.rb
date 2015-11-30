@@ -9,11 +9,15 @@ Rails.application.routes.draw do
   patch '/profile', to: 'profiles#update', as: :update_profile
   get '/profile', to: 'profiles#me', as: :current_profile
 
+
+  match "send_email/:id" => "clients#send_email", :as => :send_email_client, via: [:get, :put]
+
   resources :videos
   resources :messages, only: [:create]
   resources :hal_video_callbacks, only: :create
   resources :clients
   resources :activities, only: [:index]
+  resources :reports, only: [:index]
   
   scope '/hooks', :controller => :hooks do
     post :sendgrid_event_callback

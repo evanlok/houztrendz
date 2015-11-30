@@ -1,0 +1,6 @@
+<%= @open_rate %>
+<%= @report_date.strftime("User report for %B %Y")%>
+<% @active_clients.each do |client| %>
+  <li> <%= client.email %> </li>
+  <li> <%= client.event %> </li>
+<%end%>

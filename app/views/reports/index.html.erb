@@ -1,0 +1,8 @@
+    <p>The open rate is <%= @open_rate *100 %>% </p>
+    <p><%=@clicks %> emails were clicked </p>
+    <p><%=@opened%> emails were opened </p>
+    <p> These are your most active clients</p> 
+    <% @activeclients.each do |client| %>
+      <li><%=client[0]%></li>
+    <%end%>
+ 

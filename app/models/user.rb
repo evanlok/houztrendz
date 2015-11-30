@@ -37,4 +37,27 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+
+  def get_open_rate(user_id)
+    events = SendgridEvent.joins(client: :user).merge(User.where(id: user_id))
+    opened = Float(events.where(event: "open").count)
+    delivered = Float(events.where(event: "delivered").count)
+    rate = opened/delivered
+  end
+
+  def get_open(user_id)
+    events = SendgridEvent.joins(client: :user).merge(User.where(id: user_id))
+    opened = events.where(event: "open").count
+  end
+
+  def get_clicks(user_id)
+    events = SendgridEvent.joins(client: :user).merge(User.where(id: user_id))
+    clicks = events.where(event:"click").count
+  end
+
+  def get_top_five_active_clients(user_id)
+    events = SendgridEvent.joins(client: :user).merge(User.where(id: user_id))
+    top_users = events.where(event:"open").order(email: :desc)
+  end
 end

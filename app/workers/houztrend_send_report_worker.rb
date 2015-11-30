@@ -6,7 +6,7 @@ class HouztrendSendReportWorker
     @clients = Client.all
     @clients.each do |client|
       begin
-        HouztrendzClientEmail.send_report(client)
+        HouztrendzClientEmail.send_report(client, Time.now.month)
       rescue => e
         Honeybadger.notify(e)
       end

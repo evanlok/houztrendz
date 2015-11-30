@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   respond_to :html, :js
 
   before_action :authenticate_user!
-  before_action :load_client, only: [:edit, :update, :show, :destroy]
+  before_action :load_client, only: [:edit, :update, :show, :destroy, :send_email]
   
   def index
     @clients = current_user.clients.order("created_at DESC")
@@ -33,6 +33,11 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
     redirect_to clients_path, notice: "Deleted client: #{@client.email}"
+  end
+
+  def send_email
+    HouztrendzClientEmail.send_report(@client, Time.now.month)
+    redirect_to clients_path, notice: "Email was sent to #{@client.email}"
   end
 
   private

@@ -19,5 +19,4 @@ class HooksController < ApplicationController
     end
     render :nothing => true, :status => 200
   end
-
 end
