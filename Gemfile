@@ -31,7 +31,7 @@ gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'sidekiq'
 gem 'devise'
 gem 'omniauth-onvedeo'
 gem 'kaminari'

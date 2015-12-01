@@ -13,7 +13,7 @@ class HooksController < ApplicationController
         event.timestamp = resp["timestamp"]
         event.user_agent = resp["useragent"]
         event.smtp_id = resp["smtp-id"]
-        event.client_id = Client.find_by_email(resp["email"]).id
+        event.client_id = Client.find_by(email: resp["email"]).id
         event.save!
       end
     end

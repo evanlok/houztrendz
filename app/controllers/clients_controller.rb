@@ -36,7 +36,7 @@ class ClientsController < ApplicationController
   end
 
   def send_email
-    HouztrendzClientEmail.send_report(@client, Time.now.month)
+    HouztrendzClientEmail.send_report(@client, Time.now.month).deliver
     redirect_to clients_path, notice: "Email was sent to #{@client.email}"
   end
 
